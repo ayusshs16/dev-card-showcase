@@ -27,8 +27,11 @@
             <li><a href="#">Contributors</a></li>
             <li><a href="https://github.com/Jayanta2004" target="_blank">GitHub</a></li>
         </ul>
+        
+    <button id="themeToggle" class="theme-toggle">🌙</button>
     </nav>
-    <!-- NAVBAR END -->
+
+<!-- NAVBAR END -->
 
     <!-- Main heading of the website -->
 
@@ -225,6 +228,40 @@
             <p>Zindegi Ek safar hai.....</p>
             <a href="https://github.com/arpanpurkait" class="card-btn" target="_blank">GitHub</a>
         </div>
+      
+        <div class="card">
+            <img src="images/roychowdhury-arghya.png" alt="Arghya" class="card-img"> 
+            <h2>Arghya RoyChowdhury</h2>
+            <span class="role">Contributor</span>
+            <p>"Radhe Radhe!! This is my first Open-source Contribution , I'm really excited to be part of this community"</p>
+            <a href="https://github.com/roychowdhury-arghya" class="card-btn" target="_blank">GitHub</a>
+        </div>
+      
+        <div class="card">
+            <img src="images/user.png" alt="User Photo" class="card-img"> 
+            <h2>Amballa Sneha</h2>
+            <span class="role">Developer</span>
+            <p>"This is 1st PR in EWOC'26 "</p>
+            <a href="https://github.com/Sneha-Amballa" class="card-btn" target="_blank">View Profile</a>
+        </div>
+
+        <div class="card">
+            <img src="images/krishnx21.jpg" alt="Krishna Kumar's Photo" class="card-img">
+            <h2>Krishna Kumar</h2>
+            <span class="role">Contributor</span>
+            <p>"Excited to make my first open-source contribution through ECWoC 2026"</p>
+            <a href="https://github.com/krishnx21" class="card-btn" target="_blank">GitHub</a>
+        </div>
+
+        <div class="card">
+            <img src="images/Aditya-Jain.jpg" alt="User Photo" class="card-img">
+            <h2>Aditya Jain</h2>
+            <span class="role">Contributor</span>
+            <p>"This is my first open-source contribution through ECWoC thanks for this opportunity very much!"</p>
+            <a href="https://github.com/aditya2006magic" class="card-btn" target="_blank">GitHub</a>
+        </div>
+      
+      
       <!-- ADD YOUR NEW CARD ABOVE THIS COMMENT -->
 
     </div> <!-- End of card-container -->
@@ -325,11 +362,14 @@
     </script>
 
 <script>
+/* ---------- SORT CARDS SCRIPT ---------- */
 const container = document.querySelector(".card-container");
 const originalCards = Array.from(container.children);
 
 function sortCards() {
-    const value = document.getElementById("sortSelect").value;
+    const value = document.getElementById("sortSelect")?.value;
+    if (!value) return;
+
     let cards = Array.from(container.children);
 
     if (value === "default") {
@@ -341,14 +381,14 @@ function sortCards() {
     if (value === "az") {
         cards.sort((a, b) =>
             a.querySelector("h2").innerText
-            .localeCompare(b.querySelector("h2").innerText)
+                .localeCompare(b.querySelector("h2").innerText)
         );
     }
 
     if (value === "za") {
         cards.sort((a, b) =>
             b.querySelector("h2").innerText
-            .localeCompare(a.querySelector("h2").innerText)
+                .localeCompare(a.querySelector("h2").innerText)
         );
     }
 
@@ -360,6 +400,31 @@ function sortCards() {
     cards.forEach(card => container.appendChild(card));
 }
 </script>
+
+<script>
+/* ---------- THEME TOGGLE SCRIPT ---------- */
+const toggleBtn = document.getElementById("themeToggle");
+const body = document.body;
+
+// Load saved theme
+if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light-mode");
+    toggleBtn.textContent = "🌞";
+}
+
+toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+
+    if (body.classList.contains("light-mode")) {
+        toggleBtn.textContent = "🌞";
+        localStorage.setItem("theme", "light");
+    } else {
+        toggleBtn.textContent = "🌙";
+        localStorage.setItem("theme", "dark");
+    }
+});
+</script>
+
 
 </body>
 
