@@ -2672,3 +2672,10 @@ body.light-mode .card {
 .card img {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+
+
+.social-links a[aria-label="Instagram"]:hover { color: #e1306c; }
+.social-links a[aria-label="Facebook"]:hover { color: #1877f2; }
+.social-links a[aria-label="LinkedIn"]:hover { color: #0a66c2; }
+.social-links a[aria-label="GitHub"]:hover { color: #fff; }
+.social-links a[aria-label="Twitter"]:hover { color: #1da1f2; }
